@@ -18,5 +18,9 @@ namespace AirlineBackend.Models
         public string GitHub { get; set; }
 
         public string ImageURL { get; set; }
+
+        public ICollection<Airline> Airlines { get; set; } = new List<Airline>();
+
+        public ICollection<Description> Descriptions { get; set; } = new List<Description>();
     }
 }
