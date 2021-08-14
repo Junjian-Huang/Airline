@@ -1,4 +1,5 @@
 using AirlineBackend.Data;
+using AirlineBackend.GraphQL.Aircrafts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +29,11 @@ namespace AirlineBackend
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddPooledDbContextFactory<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services
+            .AddGraphQLServer()
+            .AddQueryType(d => d.Name("Query"))
+            .AddTypeExtension<AircraftsQueries>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,11 +48,11 @@ namespace AirlineBackend
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            //app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapGraphQL();
             });
         }
     }
