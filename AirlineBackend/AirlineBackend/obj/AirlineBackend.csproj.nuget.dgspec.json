@@ -1,0 +1,108 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\NZMSA_2021\\Airline\\AirlineBackend\\AirlineBackend\\AirlineBackend.csproj": {}
+  },
+  "projects": {
+    "D:\\NZMSA_2021\\Airline\\AirlineBackend\\AirlineBackend\\AirlineBackend.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\NZMSA_2021\\Airline\\AirlineBackend\\AirlineBackend\\AirlineBackend.csproj",
+        "projectName": "AirlineBackend",
+        "projectPath": "D:\\NZMSA_2021\\Airline\\AirlineBackend\\AirlineBackend\\AirlineBackend.csproj",
+        "packagesPath": "C:\\Users\\hjjgamesx\\.nuget\\packages\\",
+        "outputPath": "D:\\NZMSA_2021\\Airline\\AirlineBackend\\AirlineBackend\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\hjjgamesx\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "HotChocolate.AspNetCore": {
+              "target": "Package",
+              "version": "[11.3.4, )"
+            },
+            "HotChocolate.AspNetCore.Authorization": {
+              "target": "Package",
+              "version": "[11.3.4, )"
+            },
+            "HotChocolate.Data": {
+              "target": "Package",
+              "version": "[11.3.4, )"
+            },
+            "HotChocolate.Data.EntityFramework": {
+              "target": "Package",
+              "version": "[11.3.4, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
+            "Octokit": {
+              "target": "Package",
+              "version": "[0.50.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
