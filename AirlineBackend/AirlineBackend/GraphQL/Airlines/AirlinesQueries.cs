@@ -8,22 +8,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AirlineBackend.GraphQL.Aircrafts
+namespace AirlineBackend.GraphQL.Airlines
 {
     [ExtendObjectType(name: "Query")]
-    public class AircraftsQueries
+    public class AirlinesQueries
     {
         [UseAppDbContext]
         [UsePaging]
-        public IQueryable<Aircraft> GetAircrafts([ScopedService] AppDbContext context)
+        public IQueryable<Airline> GetAirlines([ScopedService] AppDbContext context)
         {
-            return context.Aircrafts;
+            return context.Airlines.OrderBy(line => line.Created);
         }
 
         [UseAppDbContext]
-        public Aircraft GetAircraft(int id, [ScopedService] AppDbContext context)
+        public Airline GetAirline(int id, [ScopedService] AppDbContext context)
         {
-            return context.Aircrafts.Find(id);
+            return context.Airlines.Find(id);
         }
     }
 }

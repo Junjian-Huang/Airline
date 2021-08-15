@@ -1,5 +1,7 @@
 using AirlineBackend.Data;
 using AirlineBackend.GraphQL.Aircrafts;
+using AirlineBackend.GraphQL.Airlines;
+using AirlineBackend.GraphQL.Descriptions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -33,7 +35,12 @@ namespace AirlineBackend
             services
             .AddGraphQLServer()
             .AddQueryType(d => d.Name("Query"))
-            .AddTypeExtension<AircraftsQueries>();
+            .AddTypeExtension<AircraftsQueries>()
+            .AddTypeExtension<AirlinesQueries>()
+            .AddType<DescriptionType>()
+            .AddType<AircraftType>()
+            .AddType<AirlineType>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

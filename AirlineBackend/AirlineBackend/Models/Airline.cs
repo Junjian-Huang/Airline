@@ -10,6 +10,7 @@ namespace AirlineBackend.Models
     {
         NZ
     }
+
     public class Airline
     {
         [Key]
