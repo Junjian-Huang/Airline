@@ -35,8 +35,12 @@ namespace AirlineBackend
             services
             .AddGraphQLServer()
             .AddQueryType(d => d.Name("Query"))
-            .AddTypeExtension<AircraftsQueries>()
-            .AddTypeExtension<AirlinesQueries>()
+                .AddTypeExtension<AircraftsQueries>()
+                .AddTypeExtension<AirlinesQueries>()
+            .AddMutationType(d => d.Name("Mutation"))
+                .AddTypeExtension<AircraftMutations>()
+                .AddTypeExtension<AirlineMutations>()
+                .AddTypeExtension<DescriptionMutations>()
             .AddType<DescriptionType>()
             .AddType<AircraftType>()
             .AddType<AirlineType>();
