@@ -41,6 +41,8 @@ namespace AirlineBackend.GraphQL.Airlines
         {
             var airline = await context.Airlines.FindAsync(int.Parse(input.AirlineId));
 
+            airline.AircraftId = int.Parse(input.AircraftId);// jjh add to modify existence airline's craftId
+
             airline.Name = input.Name ?? airline.Name;
             airline.Departure = input.Departure ?? airline.Departure;
             airline.Destination = input.Destination ?? airline.Destination;

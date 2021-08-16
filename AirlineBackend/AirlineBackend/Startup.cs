@@ -2,6 +2,7 @@ using AirlineBackend.Data;
 using AirlineBackend.GraphQL.Aircrafts;
 using AirlineBackend.GraphQL.Airlines;
 using AirlineBackend.GraphQL.Descriptions;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,9 +12,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace AirlineBackend
@@ -25,15 +28,41 @@ namespace AirlineBackend
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
+        public static IConfiguration Configuration { get; private set;} = default!;
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+            }));
+
             services.AddPooledDbContextFactory<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+
+            var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:Secret"]));
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters =
+                    new TokenValidationParameters
+                    {
+                        ValidIssuer = "Airline-MSA",
+                        ValidAudience = "MSA-airline",
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = signingKey
+                    };
+            });
+
+            services.AddAuthorization();
 
             services
             .AddGraphQLServer()
+            .AddAuthorization()
             .AddQueryType(d => d.Name("Query"))
                 .AddTypeExtension<AircraftsQueries>()
                 .AddTypeExtension<AirlinesQueries>()
@@ -44,7 +73,6 @@ namespace AirlineBackend
             .AddType<DescriptionType>()
             .AddType<AircraftType>()
             .AddType<AirlineType>();
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,11 +83,15 @@ namespace AirlineBackend
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors("MyPolicy");
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
             //app.UseAuthorization();
+
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {
