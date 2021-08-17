@@ -6,11 +6,15 @@ name: Azure App Service - airline-frontend-msa-2021(Production), Build and deplo
 on:
   push:
     branches:
-      - feature/create-frontend
+      - main
+      - feature/*
 
 jobs:
   build-and-deploy:
     runs-on: windows-latest
+    default:
+      run:
+        working-directory: "./airlinefrontend"
 
     steps:
     # checkout the repo
@@ -35,5 +39,5 @@ jobs:
         app-name: airline-frontend-msa-2021
         slot-name: Production
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_89A1CBB95E514515BA33A88CFA335FBC }}
-        package: .
+        package: "./airlinefrontend/build"
 
