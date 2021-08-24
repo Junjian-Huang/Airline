@@ -17,13 +17,13 @@ namespace AirlineBackend.Models
         public int Id { get; set; }
 
         [Required]
-        public string Departure { get; set; } = null!;
+        public string Departure { get; set; } = default!;
 
         [Required]
-        public string Destination { get; set; } = null!;
+        public string Destination { get; set; } = default!;
 
         [Required]
-        public string Name { get; set; } = null!;
+        public string Name { get; set; } = default!;
 
         [Required]
         public Country Country { get; set; }
@@ -31,7 +31,7 @@ namespace AirlineBackend.Models
         [Required]
         public int AircraftId { get; set; }
 
-        public Aircraft Aircraft { get; set; } = null!;
+        public Aircraft Aircraft { get; set; } = default!;
 
         public DateTime Modified { get; set; }
 

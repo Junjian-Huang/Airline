@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using HotChocolate;
+using HotChocolate.Types;
 
 namespace AirlineBackend.GraphQL.Descriptions
 {
     public record EditDescriptionInput
     (
+        [GraphQLType(typeof(NonNullType<IdType>))]
         string DescriptionId,
         string? Content);
 }

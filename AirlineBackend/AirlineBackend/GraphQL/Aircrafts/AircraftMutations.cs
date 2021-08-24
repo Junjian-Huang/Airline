@@ -40,21 +40,23 @@ namespace AirlineBackend.GraphQL.Aircrafts
 
 
         [UseAppDbContext]
-        public async Task<Aircraft> EditAircraftAsync(EditAircraftInput input,
+        public async Task<Aircraft> EditSelfAsync(EditSelfInput input, ClaimsPrincipal claimsPrincipal,
                 [ScopedService] AppDbContext context, CancellationToken cancellationToken)
         {
-            var aircraft = await context.Aircrafts.FindAsync(int.Parse(input.Id));
+            var aircraftIdStr = claimsPrincipal.Claims.First(c => c.Type == "aircraftId").Value;
+
+            //var aircraft = await context.Aircrafts.FindAsync(int.Parse(input.Id));
+            var aircraft = await context.Aircrafts.FindAsync(int.Parse(aircraftIdStr), cancellationToken);
 
             aircraft.Type = input.Type ?? aircraft.Type;
             //student.GitHub = input.GitHub ?? student.GitHub;
             aircraft.ImageURL = input.ImageURL ?? aircraft.ImageURL;
 
+            context.Aircrafts.Add(aircraft);
             await context.SaveChangesAsync(cancellationToken);
 
             return aircraft;
         }
-
-
 
 
         [UseAppDbContext]
@@ -91,7 +93,6 @@ namespace AirlineBackend.GraphQL.Aircrafts
                 context.Aircrafts.Add(aircraft);
                 await context.SaveChangesAsync(cancellationToken);
             }
-
 
             // authentication successful so generate jwt token
             var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Startup.Configuration["JWT:Secret"]));

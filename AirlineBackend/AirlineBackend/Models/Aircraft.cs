@@ -12,12 +12,12 @@ namespace AirlineBackend.Models
         public int Id { get; set; }
 
         [Required]
-        public string Type { get; set; }
+        public string Type { get; set; } = default!;
 
         [Required]
-        public string GitHub { get; set; }
+        public string GitHub { get; set; } = default!;
 
-        public string ImageURL { get; set; }
+        public string ImageURL { get; set; } = default!;
 
         public ICollection<Airline> Airlines { get; set; } = new List<Airline>();
 

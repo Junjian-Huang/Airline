@@ -12,17 +12,17 @@ namespace AirlineBackend.Models
         public int Id { get; set; }
 
         [Required]
-        public string Content { get; set; } = null!;
+        public string Content { get; set; } = default!;
 
         [Required]
         public int AirlineId { get; set; }
 
-        public Airline Airline { get; set; } = null!;
+        public Airline Airline { get; set; } = default!;
 
         [Required]
         public int AircraftId { get; set; }
 
-        public Aircraft Aircraft { get; set; } = null!;
+        public Aircraft Aircraft { get; set; } = default!;
 
         public DateTime Modified { get; set; }
 
