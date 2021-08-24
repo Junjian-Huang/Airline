@@ -20,10 +20,11 @@ namespace AirlineBackend.GraphQL.Airlines
             return context.Airlines.OrderBy(line => line.Created);
         }
 
+
         [UseAppDbContext]
-        public Airline GetAirline(int id, [ScopedService] AppDbContext context)
+        public Airline GetAirline([GraphQLType(typeof(NonNullType<IdType>))] string id, [ScopedService] AppDbContext context)
         {
-            return context.Airlines.Find(id);
+            return context.Airlines.Find(int.Parse(id));
         }
     }
 }

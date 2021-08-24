@@ -23,10 +23,11 @@ namespace AirlineBackend.GraphQL.Aircrafts
         }
 
 
+
         [UseAppDbContext]
-        public Aircraft GetAircraft(int id, [ScopedService] AppDbContext context)
+        public Aircraft GetAircraft([GraphQLType(typeof(NonNullType<IdType>))] string id, [ScopedService] AppDbContext context)
         {
-            return context.Aircrafts.Find(id);
+            return context.Aircrafts.Find(int.Parse(id));
         }
 
 

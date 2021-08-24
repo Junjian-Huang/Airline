@@ -85,7 +85,7 @@ namespace AirlineBackend
 
             app.UseCors("MyPolicy");
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 

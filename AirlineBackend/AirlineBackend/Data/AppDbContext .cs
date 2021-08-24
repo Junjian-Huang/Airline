@@ -11,9 +11,9 @@ namespace AirlineBackend.Data
     {
         public AppDbContext(DbContextOptions options) : base(options) { }
 
-        public DbSet<Aircraft> Aircrafts { get; set; }
-        public DbSet<Airline> Airlines { get; set; }
-        public DbSet<Description> Descriptions { get; set; }
+        public DbSet<Aircraft> Aircrafts { get; set; } = default!;
+        public DbSet<Airline> Airlines { get; set; } = default!;
+        public DbSet<Description> Descriptions { get; set; } = default!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
