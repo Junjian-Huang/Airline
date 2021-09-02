@@ -1,7 +1,7 @@
 import React from 'react';
 import './button.css';
 
-interface ButtonProps {
+export interface ButtonProps {
   /**
    * Is this the principal call to action on the page?
    */
@@ -22,23 +22,28 @@ interface ButtonProps {
    * Optional click handler
    */
   onClick?: () => void;
+  /**
+   * Optional classname
+   */
+   className?: string;
 }
 
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({
+export const Button: React.FC<ButtonProps> = ({
   primary = false,
   size = 'medium',
   backgroundColor,
   label,
+  className,
   ...props
-}: ButtonProps) => {
+}) => {
   const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
   return (
     <button
       type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
+      className={['storybook-button', `storybook-button--${size}`,className, mode].join(' ')}
       style={{ backgroundColor }}
       {...props}
     >
