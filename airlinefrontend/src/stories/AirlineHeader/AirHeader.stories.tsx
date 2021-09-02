@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react';
 import { Header, HeaderProps } from './AirHeader';
 
 export default {
-  title: 'UI Components/Header',
+  title: 'UI Components/AirHeader',
   component: Header,
 } as Meta;
 
