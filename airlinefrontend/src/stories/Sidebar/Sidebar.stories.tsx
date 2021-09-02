@@ -12,9 +12,9 @@ const Template: Story = () => <SideBar />;
 export const LoggedIn = Template.bind({});
 LoggedIn.args = {
     user: {
-        __typename: "Student",
+        __typename: "Aircraft",
         id: "1",
-        name: "John Doe",
+        name: "Name in Storybook Sidebar",
         gitHub: "johndoe",
         imageURI: "https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg"
     },
