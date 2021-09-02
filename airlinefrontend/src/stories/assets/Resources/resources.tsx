@@ -44,5 +44,5 @@ export const LinkedIn_LOGO = {
     url: "https://www.linkedin.com/in/junjian-jj-huang-7a952a172",
     logo: linkedinLogo
 }
-export const PRIVACY_POLICY = "https://go.microsoft.com/fwlink/?LinkId=521839"
-export const TERMS_OF_USE = "https://go.microsoft.com/fwlink/?LinkID=206977"
+export const PRIVACY_POLICY = "https://github.com/NZMSA/2021-Phase2-Assignments/blob/main/2021-MSA-Phase2-General-Stream.pdf"
+export const TERMS_OF_USE = "https://github.com/NZMSA/2021-Phase2-Assignments/blob/main/2021-MSA-Phase2-General-Stream.pdf"
