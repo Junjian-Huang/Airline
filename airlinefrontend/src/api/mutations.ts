@@ -51,7 +51,7 @@ export const EDIT_AIRLINE = gql`
     $destination: String
     $name: String
   ) {
-    editProject(
+    editAirline(
       input: {
         airlineId: $airlineId,
         aircraftID: $aircraftID,
@@ -69,9 +69,10 @@ export const EDIT_AIRLINE = gql`
 export const ADD_DESCRIPTION = gql`
   mutation AddDescription(
     $content: String!,
-    $airlineId: ID!
+    $airlineId: ID!,
+    $aircraftId: ID
   ) {
-    addComment(input: { content: $content, airlineId: $airlineId }) {
+    addDescription(input: { content: $content, airlineId: $airlineId, aircraftID: $aircraftId}) {
       ...descriptionFields
     }
   }

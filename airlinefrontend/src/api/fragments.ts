@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 export const AIRCRAFT = gql`
-    fragment studentFields on Student {
+    fragment aircraftFields on Aircraft {
         id
         type
         gitHub
@@ -10,7 +10,7 @@ export const AIRCRAFT = gql`
 `;
 
 export const AIRLINE = gql`
-    fragment projectFields on Project {
+    fragment airlineFields on Airline {
         id
         departure
         destination
@@ -22,7 +22,7 @@ export const AIRLINE = gql`
 `;
 
 export const DESCRIPTION = gql`
-    fragment commentFields on Comment {
+    fragment descriptionFields on Description {
         id
         content
         modified
