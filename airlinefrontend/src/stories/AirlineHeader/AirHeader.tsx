@@ -14,16 +14,16 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Button from "@material-ui/core/Button";
 import logo from "../assets/logos/header_logo.svg";
 import { useHistory, useLocation } from "react-router-dom";
-//import { useMutation } from "@apollo/client";
-//import { Self_self } from "../../api/__generated__/Self";
-//import { LOGIN } from "../../api/mutations";
+import { useMutation } from "@apollo/client";
+import { Self_self } from "../../api/__generated__/Self";
+import { LOGIN } from "../../api/mutations";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 
 export interface HeaderProps {
-  user?: "Self_self";
+  user?: Self_self;
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -56,17 +56,17 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   })
 );
-export interface Login_login_student {
-  __typename: "Student";
+export interface Login_login_aircraft {
+  __typename: "Aircraft";
   id: string;
-  name: string;
+  type: string;
   gitHub: string;
-  imageURI: string;
+  imageURL: string;
 }
 
 export interface Login_login {
   __typename: "LoginPayload";
-  student: Login_login_student;
+  aircraft: Login_login_aircraft;
   jwt: string;
 }
 
@@ -78,11 +78,11 @@ export interface LoginVariables {
   code: string;
 }
 
-const CLIENT_ID = "a6ac879139cfdf60af2a";
+const CLIENT_ID = "3533ed427b1b4b228584";
 const REDIRECT_URI = "http://localhost:3000/home";
 
 
-export const Header: React.FC<HeaderProps> = ({ user }) => {
+export const AirHeader: React.FC<HeaderProps> = ({ user }) => {
   const history = useHistory()
   const classes = useStyles();
   const [sideBar, setSideBar] = useState(false);
@@ -93,17 +93,17 @@ export const Header: React.FC<HeaderProps> = ({ user }) => {
     setSideBar(!sideBar);
   };
 
-  //const [login] = useMutation<Login>(LOGIN);
+  const [login] = useMutation<Login>(LOGIN);
 
   useEffect(() => {
     const loginMethod = async () => {
       const code = query.get("code");
       if (code != null) {
         try {
-          //const { data } = await login({ variables: { code } });
-          //if (data != null) {
-            //localStorage.setItem("token", data.login.jwt)
-          //}
+          const { data } = await login({ variables: { code } });
+          if (data != null) {
+            localStorage.setItem("token", data.login.jwt)
+          }
         } catch (e) {
           console.log(e);
         }
@@ -134,7 +134,7 @@ export const Header: React.FC<HeaderProps> = ({ user }) => {
             <img src={logo} id="logo" width="200px" alt="MSA Logo" />
           </IconButton>
           <Typography className={classes.title} variant="h5" noWrap>
-            Microsoft Student Accelerator Project Submissions
+                      Airline Assignment System
           </Typography>
           {user == null ? (
             <Button
@@ -146,8 +146,8 @@ export const Header: React.FC<HeaderProps> = ({ user }) => {
           ) : (
             <div className={classes.userInformation}>
               <Hidden smDown>
-                <Avatar alt="user-avatar" src={user} />
-                <Button color="inherit" href="/submit">{user}</Button>
+                <Avatar alt="user-avatar" src={user.imageURL} />
+                <Button color="inherit" href="/submit">{user.type}</Button>
               </Hidden>
             </div>
           )}

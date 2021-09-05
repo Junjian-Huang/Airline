@@ -2,7 +2,7 @@ import React from "react";
 import { Redirect, Route, Switch } from "react-router";
 import "./App.css";
 
-import { Header } from "./stories/Header/Header";
+import { AirHeader } from "./stories/AirlineHeader/AirHeader";
 import { Footer } from "./stories/Footer/Footer";
 //import {SubmitForm} from "./stories/SubmitForm/SubmitForm"
 //import FeedPage from "./FeedPage";
@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div className="App">
-      
+      <AirHeader user={data?.self} />
       <Switch>
         <Route exact path="/">
           <Redirect to="/home" />
