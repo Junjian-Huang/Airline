@@ -16,7 +16,7 @@ const makeCard = () : JSX.Element => {
             </CardHeader>
             <Divider />
             <CardContent>
-                Lorem Ipsum Dolor Est Et Cetera Et Cetera
+                Card content in CardList.stories.tsx
             </CardContent>
         </Card>
 }
