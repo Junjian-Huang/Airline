@@ -31,10 +31,10 @@ const FeedPage = ({ pageTitle }: FeedPageProps): JSX.Element => {
             setCards(data!.airlines!.nodes!.map((airline : Airlines_airlines_nodes) => {
                 return <GithubCard 
                     avatar={<Avatar>{airline.aircraft.type[0]}</Avatar>}
-                    cardTitle={airline.name}
-                    subHeader={airline.aircraft.type}
-                    cardContent={<Typography>{airline.name}</Typography>}
-                    url={airline.destination}
+                    cardTitle={airline.departure}
+                    subHeader={airline.country}
+                    cardContent={<Typography>{airline.destination}</Typography>}
+                    url={airline.aircraft.imageURL}
                  />
             }))
         }

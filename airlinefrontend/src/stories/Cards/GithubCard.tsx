@@ -42,21 +42,21 @@ const ExternalDialog = ({isOpen, setIsOpen, url} : ExternalDialogProps) : JSX.El
     
     return <Dialog open={isOpen} onClose={() => setIsOpen(false)}>
         <DialogTitle>
-            {`This will take you to the GitHub website. Proceed to external URL ${url}?`}
+            {`Link to the image website. Proceed to external URL ${url}?`}
         </DialogTitle>
         <div className={styles.buttonGroup}>
-        <Button className={styles.button} 
-        variant="contained" 
-        color={"primary"} 
-        onClick={() => window.location.href = url}>
-            Continue
-        </Button>
-        <Button className={styles.button}
-        variant="contained" 
-        color={"secondary"} 
-        onClick={() => setIsOpen(false)}>
-            Take Me Back!
-        </Button>
+            <Button className={styles.button} 
+                variant="contained" 
+                color={"primary"} 
+                onClick={() => window.location.href = url}>
+                    Continue
+            </Button>
+            <Button className={styles.button}
+                variant="contained" 
+                color={"secondary"} 
+                onClick={() => setIsOpen(false)}>
+                    Take Me Back!
+            </Button>
         </div>
     </Dialog>
 }

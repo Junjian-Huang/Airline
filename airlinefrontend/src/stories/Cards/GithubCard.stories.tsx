@@ -11,14 +11,15 @@ export default {
 const Template: Story<GithubCardProps> = (args) => <GithubCard {...args} />;
 
 export const BasicCard = Template.bind(this);
+
 BasicCard.args = {
-    avatar: <Avatar>
-            R
-        </Avatar>,
-    cardTitle: "Project Lorem Ipsum",
-    subHeader: "Rodger Gu",
+    avatar: <Avatar> 
+            A380 
+            </Avatar>,
+    cardTitle: "Airline's Departure",
+    subHeader: "Country",
     cardContent: <Typography>
-            some content
-        </Typography>,
-    url: "https://github.com/NZMSA"
+                    Destination
+                 </Typography>,
+    url: "https://airline's-craft-URL"
 };
