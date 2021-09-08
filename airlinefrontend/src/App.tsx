@@ -5,6 +5,9 @@ import "./App.css";
 import { AirHeader } from "./stories/AirlineHeader/AirHeader";
 import { Footer } from "./stories/Footer/Footer";
 import {SubmitForm} from "./stories/SubmitForm/SubmitForm"
+
+import {AddAirlineForm} from "./stories/AddAirlineForm/AddAirlineForm"
+
 import FeedPage from "./FeedPage";
 import { useQuery } from "@apollo/client";
 import { SELF } from "./api/queries";
@@ -24,6 +27,9 @@ function App() {
           path="/home"
           render={() => <FeedPage pageTitle="Airline System Projects 2021" />}
         />
+        <Route path="/addAirline">
+          <AddAirlineForm />
+        </Route>
         <Route path="/submit">
           <SubmitForm />
         </Route>
