@@ -2,6 +2,7 @@ import React from 'react';
 import { Divider, Link, List, ListItem, ListItemIcon, ListItemText, makeStyles } from '@material-ui/core';
 import HomeIcon from '@material-ui/icons/Home';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+import FlightIcon from '@material-ui/icons/Flight';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import AddBoxIcon from '@material-ui/icons/AddBox';
 import { HeaderProps } from '../AirlineHeader/AirHeader';
@@ -30,12 +31,16 @@ export const SideBar: React.FC<HeaderProps> = ({ user }) => {
     <div className={classes.list}>
       <List>
         <ListItem button href="/" component={Link}>
-          <ListItemIcon><HomeIcon /></ListItemIcon>
-          <ListItemText className={classes.listText} primary="Home" />
+            <ListItemIcon><HomeIcon /></ListItemIcon>
+            <ListItemText className={classes.listText} primary="Home" />
         </ListItem>
         <ListItem button href="/submit" component={Link}>
-          <ListItemIcon><ArrowUpwardIcon /></ListItemIcon>
-          <ListItemText className={classes.listText} primary="Submit" />
+            <ListItemIcon><ArrowUpwardIcon /></ListItemIcon>
+            <ListItemText className={classes.listText} primary="Submit" />
+        </ListItem>
+        <ListItem button href="/addAirline" component={Link}>
+            <ListItemIcon><FlightIcon /></ListItemIcon>
+            <ListItemText className={classes.listText} primary="Add Airline" />
         </ListItem>
       </List>
       <Divider />
