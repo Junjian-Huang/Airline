@@ -9,18 +9,15 @@ import {SubmitForm} from "./stories/SubmitForm/SubmitForm"
 import {AddAirlineForm} from "./stories/AddAirlineForm/AddAirlineForm"
 
 import FeedPage from "./FeedPage";
-import { useQuery,ApolloProvider } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { SELF } from "./api/queries";
 import { Self } from "./api/__generated__/Self";
 
-import graphQLClient from "./GraphQLClient";
-
 function App() {
-  const { loading, error, data } = useQuery<Self>(SELF);
+  const { data } = useQuery<Self>(SELF);
 
   return (
     <div className="App">
-      <ApolloProvider client={graphQLClient}>
         <AirHeader user={data?.self} />
             <Switch>
                 <Route exact path="/">
@@ -38,7 +35,6 @@ function App() {
                 </Route>
             </Switch>
         <Footer />
-      </ApolloProvider>
     </div>
   );
 }
