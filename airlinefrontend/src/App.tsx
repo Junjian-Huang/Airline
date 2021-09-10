@@ -14,7 +14,7 @@ import { SELF } from "./api/queries";
 import { Self } from "./api/__generated__/Self";
 
 function App() {
-  const { data } = useQuery<Self>(SELF);
+  const { loading, error, data } = useQuery<Self>(SELF);
 
   return (
     <div className="App">
