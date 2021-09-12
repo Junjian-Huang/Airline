@@ -6,9 +6,25 @@ import { Button, ButtonProps } from './Button';
 export default {
   title: 'UI Components/Button',
   component: Button,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+    argTypes: {
+      backgroundColor: { control: 'color' },
+    },
+    parameters: {
+      backgrounds: {
+        values: [
+          { name: 'red', value: '#f00' },
+          { name: 'green', value: '#0f0' },
+          { name: 'blue', value: '#00f' },
+        ],
+      },
+    },
+    decorators: [
+      (Story) => (
+        <div style={{ margin: '3em' }}>
+          <Story />
+        </div>
+      ),
+    ],
 } as Meta;
 
 const Template: Story<ButtonProps> = (args) => <Button {...args} />;
