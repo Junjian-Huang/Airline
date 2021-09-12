@@ -18,6 +18,8 @@ import { useMutation } from "@apollo/client";
 import { Self_self } from "../../api/__generated__/Self";
 import { LOGIN } from "../../api/mutations";
 
+import "./AirHeader.css";
+
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
@@ -37,6 +39,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     menuButton: {
       marginRight: theme.spacing(2),
+      border: "1px solid",
     },
     title: {
       flexGrow: 1,
@@ -54,8 +57,14 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: "center",
       display: "flex",
     },
+    loginbutton: {
+      border: "1px solid",
+    },
   })
 );
+
+
+
 export interface Login_login_aircraft {
   __typename: "Aircraft";
   id: string;
@@ -119,6 +128,7 @@ export const AirHeader: React.FC<HeaderProps> = ({ user }) => {
       <AppBar className={classes.appBar} position="static">
         <Toolbar>
           <IconButton
+            id="hoverChange"
             edge="start"
             className={classes.menuButton}
             color="inherit"
@@ -130,14 +140,16 @@ export const AirHeader: React.FC<HeaderProps> = ({ user }) => {
               <SideBar user={user} />
             </Drawer>
           </IconButton>
-          <IconButton href="/home">
-            <img src={logo} id="logo" width="200px" alt="MSA Logo" />
+          <IconButton href="/home" id="hoverChange">
+            <img src={logo} id="logo" width="120px" alt="header Logo" />
           </IconButton>
           <Typography className={classes.title} variant="h5" noWrap>
                       Airline Assignment System
           </Typography>
           {user == null ? (
             <Button
+              className={classes.loginbutton}
+              id="hoverChange"
               color="inherit"
               href={`https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}&scope=user&redirect_uri=${REDIRECT_URI}`}
             >

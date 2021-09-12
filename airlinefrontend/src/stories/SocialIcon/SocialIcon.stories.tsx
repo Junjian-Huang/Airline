@@ -19,7 +19,7 @@ export default {
 
 const Template: Story<SocialIconProps> = (args) => (
 
-    <div style={{ backgroundColor: "black" }}>
+    <div style={{ backgroundColor: "#47478d" }}>
         <FooterSocialIcon {...args} />
     </div>
 )

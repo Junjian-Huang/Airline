@@ -7,6 +7,8 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import AddBoxIcon from '@material-ui/icons/AddBox';
 import { HeaderProps } from '../AirlineHeader/AirHeader';
 
+import "./Sidebar.css";
+
 const useStyles = makeStyles({
   list: {
     width: 250,
@@ -30,21 +32,21 @@ export const SideBar: React.FC<HeaderProps> = ({ user }) => {
   return (
     <div className={classes.list}>
       <List>
-        <ListItem button href="/" component={Link}>
+        <ListItem button href="/" component={Link} className='nav-links'>
             <ListItemIcon><HomeIcon /></ListItemIcon>
             <ListItemText className={classes.listText} primary="Home" />
         </ListItem>
-        <ListItem button href="/submit" component={Link}>
+        <ListItem button href="/submit" component={Link} className='nav-links'>
             <ListItemIcon><ArrowUpwardIcon /></ListItemIcon>
             <ListItemText className={classes.listText} primary="Submit" />
         </ListItem>
-        <ListItem button href="/addAirline" component={Link}>
+        <ListItem button href="/addAirline" component={Link} className='nav-links'>
             <ListItemIcon><FlightIcon /></ListItemIcon>
             <ListItemText className={classes.listText} primary="Add Airline" />
         </ListItem>
       </List>
       <Divider />
-      <List>
+      <List className='nav-links'>
         {user ?
           <ListItem button href="/home" component={Link} onClick={handleLogout}>
             <ListItemIcon><ExitToAppIcon /></ListItemIcon>
