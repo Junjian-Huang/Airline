@@ -64,7 +64,6 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 
-
 export interface Login_login_aircraft {
   __typename: "Aircraft";
   id: string;
@@ -125,7 +124,7 @@ export const AirHeader: React.FC<HeaderProps> = ({ user }) => {
 
   return (
     <div className={classes.root}>
-      <AppBar className={classes.appBar} position="static">
+      <AppBar className={classes.appBar} position="sticky">
         <Toolbar>
           <IconButton
             id="hoverChange"
@@ -133,35 +132,34 @@ export const AirHeader: React.FC<HeaderProps> = ({ user }) => {
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
-            onClick={toggleSideBar}
-          >
-            <MenuIcon />
+            onClick={toggleSideBar}>
+          <MenuIcon />
             <Drawer anchor="left" open={sideBar} onClose={toggleSideBar}>
               <SideBar user={user} />
             </Drawer>
           </IconButton>
           <IconButton href="/home" id="hoverChange">
-            <img src={logo} id="logo" width="120px" alt="header Logo" />
+              <img src={logo} id="logo" width="120px" alt="header Logo" />
           </IconButton>
           <Typography className={classes.title} variant="h5" noWrap>
                       Airline Assignment System
           </Typography>
           {user == null ? (
-            <Button
-              className={classes.loginbutton}
-              id="hoverChange"
-              color="inherit"
-              href={`https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}&scope=user&redirect_uri=${REDIRECT_URI}`}
-            >
-              Login
-            </Button>
-          ) : (
-            <div className={classes.userInformation}>
-              <Hidden smDown>
-                <Avatar alt="user-avatar" src={user.imageURL} />
-                <Button color="inherit" href="/submit">{user.type}</Button>
-              </Hidden>
-            </div>
+              <Button
+                className={classes.loginbutton}
+                id="hoverChange"
+                color="inherit"
+                href={`https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}&scope=user&redirect_uri=${REDIRECT_URI}`}
+              >
+                Login
+              </Button>
+            ) : (
+              <div className={classes.userInformation}>
+                <Hidden smDown>
+                  <Avatar alt="user-avatar" src={user.imageURL} />
+                  <Button color="inherit" href="/submit">{user.type}</Button>
+                </Hidden>
+              </div>
           )}
         </Toolbar>
       </AppBar>

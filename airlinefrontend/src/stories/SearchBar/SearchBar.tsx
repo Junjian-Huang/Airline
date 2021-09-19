@@ -39,6 +39,7 @@ export function SearchBar(props:ISearchBarProps) {
                     id="outlined-required"
                     label="Search"
                     variant="outlined"
+                    placeholder="Input aircraft type"
                     error={HasFocus && SearchQuery === ""}
                     onClick={() => setHasFocus(true)}
                     value={SearchQuery}
