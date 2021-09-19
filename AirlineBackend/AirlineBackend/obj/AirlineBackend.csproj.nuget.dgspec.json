@@ -10,14 +10,11 @@
         "projectUniqueName": "D:\\NZMSA_2021\\Airline\\AirlineBackend\\AirlineBackend\\AirlineBackend.csproj",
         "projectName": "AirlineBackend",
         "projectPath": "D:\\NZMSA_2021\\Airline\\AirlineBackend\\AirlineBackend\\AirlineBackend.csproj",
-        "packagesPath": "C:\\Users\\hjjgamesx\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\Junjian Huang\\.nuget\\packages\\",
         "outputPath": "D:\\NZMSA_2021\\Airline\\AirlineBackend\\AirlineBackend\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\hjjgamesx\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Junjian Huang\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -100,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
