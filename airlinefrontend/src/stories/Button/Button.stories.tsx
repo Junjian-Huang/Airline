@@ -6,9 +6,6 @@ import { Button, ButtonProps } from './Button';
 export default {
   title: 'UI Components/Button',
   component: Button,
-    argTypes: {
-      backgroundColor: { control: 'color' },
-    },
     parameters: {
       backgrounds: {
         values: [
@@ -19,9 +16,9 @@ export default {
       },
     },
     decorators: [
-      (Story) => (
+      (Button) => (
         <div style={{ margin: '3em' }}>
-          <Story />
+          <Button />
         </div>
       ),
     ],
@@ -33,6 +30,7 @@ export const Primary = Template.bind({});
 Primary.args = {
   primary: true,
   label: 'Button',
+  backgroundColor:"orange"
 };
 
 export const Secondary = Template.bind({});

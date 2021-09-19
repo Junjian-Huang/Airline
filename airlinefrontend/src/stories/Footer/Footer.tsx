@@ -14,13 +14,13 @@ export const Footer = () => {
 
     return (
         <footer className="footer">
-            <Hidden smDown>
+            <Hidden xsDown>
                 <Grid container direction="row" justifyContent="space-between" alignItems="flex-start" spacing={4}>
                     <Grid item xs={4}>
                         <FooterSocialIcon {...LinkedIn_LOGO} />
                         {`Copyright © MSA Student Junjian Huang, 2021. All rights reserved`}
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={4}>
                         {SOCIAL_MEDIA.map((icon: SocialIconProps) => {
                             return (
                                 <FooterSocialIcon key={icon.name} {...icon} />
@@ -31,9 +31,9 @@ export const Footer = () => {
             </Hidden>
             {/* Mobile view of footer, looks very different :) */}
             <Hidden smUp>
-                <Grid container direction="row">
+                <Grid container direction="column" >
                     <Grid item>
-                        <Grid container direction="row" justifyContent="space-between" spacing={3}>
+                        <Grid container direction="column" justifyContent="space-between" spacing={3}>
                             <Grid item>
                                 <Box marginLeft={2}>
                                     {`© JJ Huang MSA Airline project 2021`}
