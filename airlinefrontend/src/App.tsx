@@ -1,13 +1,11 @@
 import React from "react";
 import { Redirect, Route, Switch } from "react-router";
 import "./App.css";
-
 import { AirHeader } from "./stories/AirlineHeader/AirHeader";
 import { Footer } from "./stories/Footer/Footer";
 import {SubmitForm} from "./stories/SubmitForm/SubmitForm"
-
 import {AddAirlineForm} from "./stories/AddAirlineForm/AddAirlineForm"
-
+import SearchPage from "./stories/SearchPage/SearchPageIndex"
 import FeedPage from "./FeedPage";
 import { useQuery } from "@apollo/client";
 import { SELF } from "./api/queries";
@@ -29,6 +27,9 @@ function App() {
                 />
                 <Route path="/addAirline">
                   <AddAirlineForm />
+                </Route>
+                <Route path="/searchPage">
+                  <SearchPage />
                 </Route>
                 <Route path="/submit">
                   <SubmitForm />
