@@ -5,6 +5,7 @@ import facebookLogo from "../assets/logos/facebook_logo.svg"
 import discordLogo from "../assets/logos/discord_logo.svg"
 import youtubeLogo from "../assets/logos/youtube_logo.svg"
 import headerLogo from "../assets/logos/header_logo.svg"
+import footerPlaneLogo from "../assets/logos/footerPlane_logo.png"
 import { Story, Meta } from '@storybook/react';
 import { SocialIconProps, FooterSocialIcon } from './SocialIcon';
 
@@ -62,4 +63,11 @@ HeaderIcon.args = {
     name: "Header",
     url: "https://www.airnewzealand.co.nz/",
     logo: headerLogo
+};
+
+export const FooterPlaneIcon = Template.bind({});
+FooterPlaneIcon.args = {
+    name: "FooterPlane",
+    url: "https://www.airnewzealand.co.nz/",
+    logo: footerPlaneLogo
 };

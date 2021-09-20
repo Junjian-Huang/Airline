@@ -35,8 +35,7 @@ export const ADD_AIRLINE = gql`
        destination: $destination, 
        name: $name, 
        country: $country 
-      }
-      ) {
+      }) {
       ...airlineFields
     }
   }
