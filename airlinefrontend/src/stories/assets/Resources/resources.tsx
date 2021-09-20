@@ -4,8 +4,6 @@ import discordLogo from "../logos/discord_logo.svg"
 import facebookgroupLogo from "../logos/facebookgroup_logo.svg"
 import youtubeLogo from "../logos/youtube_logo.svg"
 import githubLogo from "../logos/github_logo.svg"
-import headerLogo from "../logos/header_logo.svg"
-
 import footerLogo from "../logos/footerPlane_logo.png"
 
 export const SOCIAL_MEDIA = [

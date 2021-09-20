@@ -3,8 +3,9 @@ import { Divider, Link, List, ListItem, ListItemIcon, ListItemText, makeStyles }
 import HomeIcon from '@material-ui/icons/Home';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import FlightIcon from '@material-ui/icons/Flight';
+import SearchIcon from '@material-ui/icons/Search';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import AddBoxIcon from '@material-ui/icons/AddBox';
+import LockOpenIcon from '@material-ui/icons/LockOpen';
 import { HeaderProps } from '../AirlineHeader/AirHeader';
 
 import "./Sidebar.css";
@@ -44,6 +45,12 @@ export const SideBar: React.FC<HeaderProps> = ({ user }) => {
             <ListItemIcon><FlightIcon /></ListItemIcon>
             <ListItemText className={classes.listText} primary="Add Airline" />
         </ListItem>
+
+        <ListItem button href="/searchPage" component={Link} className='nav-links'>
+            <ListItemIcon><SearchIcon /></ListItemIcon>
+            <ListItemText className={classes.listText} primary="Search Airpcraft" />
+        </ListItem>
+
       </List>
       <Divider />
       <List className='nav-links'>
@@ -53,7 +60,7 @@ export const SideBar: React.FC<HeaderProps> = ({ user }) => {
             <ListItemText className={classes.listText} primary="Logout" />
           </ListItem> :
           <ListItem button href={`https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}&scope=user&redirect_uri=${REDIRECT_URI}`} component={Link}>
-            <ListItemIcon><AddBoxIcon /></ListItemIcon>
+            <ListItemIcon><LockOpenIcon /></ListItemIcon>
             <ListItemText className={classes.listText} primary="Login" />
           </ListItem>
 
