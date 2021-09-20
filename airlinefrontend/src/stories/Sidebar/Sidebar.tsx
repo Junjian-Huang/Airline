@@ -21,7 +21,7 @@ const useStyles = makeStyles({
   },
 });
 
-const CLIENT_ID = "a6ac879139cfdf60af2a";
+const CLIENT_ID = "3533ed427b1b4b228584";
 const REDIRECT_URI = "http://localhost:3000/home";
 
 export const SideBar: React.FC<HeaderProps> = ({ user }) => {
