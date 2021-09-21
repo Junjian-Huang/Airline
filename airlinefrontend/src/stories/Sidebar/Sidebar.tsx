@@ -7,6 +7,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 import { HeaderProps } from '../AirlineHeader/AirHeader';
+import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
 
 import "./Sidebar.css";
 
@@ -45,12 +46,14 @@ export const SideBar: React.FC<HeaderProps> = ({ user }) => {
             <ListItemIcon><FlightIcon /></ListItemIcon>
             <ListItemText className={classes.listText} primary="Add Airline" />
         </ListItem>
-
         <ListItem button href="/searchPage" component={Link} className='nav-links'>
             <ListItemIcon><SearchIcon /></ListItemIcon>
             <ListItemText className={classes.listText} primary="Search Airpcraft" />
         </ListItem>
-
+        <ListItem button href="/aircraftPage" component={Link} className='nav-links'>
+            <ListItemIcon><FlightTakeoffIcon /></ListItemIcon>
+            <ListItemText className={classes.listText} primary="Airpcrafts" />
+        </ListItem>
       </List>
       <Divider />
       <List className='nav-links'>

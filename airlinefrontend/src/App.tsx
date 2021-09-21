@@ -10,6 +10,7 @@ import FeedPage from "./FeedPage";
 import { useQuery } from "@apollo/client";
 import { SELF } from "./api/queries";
 import { Self } from "./api/__generated__/Self";
+import AircraftPage from "./stories/AircraftPage/AircraftPage";
 
 function App() {
   const { loading, error, data } = useQuery<Self>(SELF);
@@ -33,6 +34,9 @@ function App() {
                 </Route>
                 <Route path="/submit">
                   <SubmitForm />
+                </Route>
+                <Route path="/aircraftPage">
+                  <AircraftPage />
                 </Route>
             </Switch>
         <Footer />
