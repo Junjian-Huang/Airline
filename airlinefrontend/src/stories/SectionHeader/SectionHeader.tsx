@@ -1,5 +1,6 @@
-import { Divider, IconButton, Typography } from '@material-ui/core';
-import { ExpandMore, ExpandLess } from '@material-ui/icons';
+import { Typography } from '@material-ui/core';
+//above deleted some content. origin is: import { Divider, IconButton, Typography } from '@material-ui/core';
+//import { ExpandMore, ExpandLess } from '@material-ui/icons';
 import React from 'react';
 import SectionHeaderStyles from './SectionHeaderStyles';
 
@@ -9,13 +10,13 @@ export interface SectionHeaderProps {
 }
 
 const SectionHeader = ({sectionTitle, doClick} : SectionHeaderProps) : JSX.Element => {
-    const [open, setOpen] = React.useState(false);
+    //const [open, setOpen] = React.useState(false);
     const styles = SectionHeaderStyles();
 
-    const handleClick = () => {
+    /*const handleClick = () => {
         setOpen(!open);
         doClick();
-    }
+    }*/
 
     return <div className={styles.wrapper}> 
         <div className={styles.divider}>
