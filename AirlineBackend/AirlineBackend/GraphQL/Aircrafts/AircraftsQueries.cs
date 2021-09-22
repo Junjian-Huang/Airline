@@ -1,14 +1,13 @@
-﻿using AirlineBackend.Data;
+﻿using System.ComponentModel.DataAnnotations;
+using AirlineBackend.Data;
 using AirlineBackend.Extensions;
 using AirlineBackend.Models;
 using HotChocolate;
 using HotChocolate.AspNetCore.Authorization;
 using HotChocolate.Types;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
+
 
 namespace AirlineBackend.GraphQL.Aircrafts
 {

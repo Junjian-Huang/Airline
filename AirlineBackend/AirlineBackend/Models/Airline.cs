@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using HotChocolate;
 
 namespace AirlineBackend.Models
 {
@@ -29,6 +30,7 @@ namespace AirlineBackend.Models
         public Country Country { get; set; }
 
         [Required]
+        [GraphQLIgnore]
         public int AircraftId { get; set; }
 
         public Aircraft Aircraft { get; set; } = default!;

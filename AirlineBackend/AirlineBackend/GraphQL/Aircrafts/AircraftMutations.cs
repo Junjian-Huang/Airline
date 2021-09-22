@@ -3,6 +3,7 @@ using AirlineBackend.Extensions;
 using AirlineBackend.Models;
 using HotChocolate;
 using HotChocolate.AspNetCore;
+using HotChocolate.AspNetCore.Authorization;
 using HotChocolate.Types;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -40,6 +41,7 @@ namespace AirlineBackend.GraphQL.Aircrafts
 
 
         [UseAppDbContext]
+        [Authorize]
         public async Task<Aircraft> EditSelfAsync(EditSelfInput input, ClaimsPrincipal claimsPrincipal,
                 [ScopedService] AppDbContext context, CancellationToken cancellationToken)
         {
