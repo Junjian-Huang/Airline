@@ -5,6 +5,8 @@ namespace AirlineBackend.GraphQL.Airlines
         string Departure,
         string Destination,
         string Name,
-        string Country,
-        string AircraftId);
+        string Country
+        );
 }
+
+//      string AircraftId

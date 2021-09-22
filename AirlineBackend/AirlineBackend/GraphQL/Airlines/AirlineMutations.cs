@@ -18,6 +18,7 @@ namespace AirlineBackend.GraphQL.Airlines
     public class AirlineMutations
     {
         [UseAppDbContext]
+        [Authorize]
         public async Task<Airline> AddAirlineAsync(AddAirlineInput input, ClaimsPrincipal claimsPrincipal,
             [ScopedService] AppDbContext context, CancellationToken cancellationToken)
         {
@@ -29,7 +30,8 @@ namespace AirlineBackend.GraphQL.Airlines
                 Departure = input.Departure,
                 Destination = input.Destination,
                 Country = (Country)Enum.Parse(typeof(Country), input.Country),
-                AircraftId = int.Parse(input.AircraftId),
+                AircraftId = int.Parse(aircraftIdStr),
+                //AircraftId = int.Parse(input.AircraftId),
                 Modified = DateTime.Now,
                 Created = DateTime.Now,
             };

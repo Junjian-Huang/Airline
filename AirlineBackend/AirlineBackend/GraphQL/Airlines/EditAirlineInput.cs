@@ -8,12 +8,11 @@ namespace AirlineBackend.GraphQL.Airlines
 
         [property: GraphQLType(typeof(NonNullType<IdType>))]
         string AirlineId,
-
-        string AircraftId,
-
         string? Departure,
         string? Destination,
         string? Name,
         string? Country);
 
 }
+
+//string AircraftId,

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using HotChocolate;
 
 namespace AirlineBackend.Models
 {
@@ -15,6 +16,7 @@ namespace AirlineBackend.Models
         public string Content { get; set; } = default!;
 
         [Required]
+        [GraphQLIgnore]
         public int AirlineId { get; set; }
 
         public Airline Airline { get; set; } = default!;
