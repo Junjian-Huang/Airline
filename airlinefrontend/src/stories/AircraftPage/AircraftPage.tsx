@@ -18,12 +18,12 @@ const AircraftPage = (): JSX.Element => {
           if(!loading && !error) {
               setCards(data!.aircrafts!.nodes!.map((aircraft : Aircrafts_aircrafts_nodes) => {
                   return (               
-                   <Card >
+                   <Card className="craftPage" variant="outlined">
                         <CardActionArea>
                             <CardMedia
                                 component="img"
                                 height="140"
-                                src={aircraft.imageURL}
+                                image={aircraft.imageURL}
                                 alt="aircraft image"
                             />
                             <CardContent>
@@ -35,9 +35,9 @@ const AircraftPage = (): JSX.Element => {
                                 </Typography>
                             </CardContent>
                         </CardActionArea>
-                        <Divider/>
+                        <Divider variant="middle"/>
                         <CardActions>
-                            <Button size="small" color="primary">
+                            <Button size="medium" color="primary" variant="contained">
                                 {aircraft.id[0]}
                             </Button>
                         </CardActions>

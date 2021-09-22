@@ -56,6 +56,7 @@ export const AddAirlineForm: React.FC<SubmitFormProps> = () => {
             }
         }else{
             setHasFocus(true);
+            alert("Please login to add Airline");
         }
     };
 
