@@ -68,10 +68,9 @@ export const EDIT_AIRLINE = gql`
 export const ADD_DESCRIPTION = gql`
   mutation AddDescription(
     $content: String!,
-    $airlineId: ID!,
-    $aircraftId: ID
+    $airlineId: ID!
   ) {
-    addDescription(input: { content: $content, airlineId: $airlineId, aircraftID: $aircraftId}) {
+    addDescription(input: { content: $content, airlineId: $airlineId}) {
       ...descriptionFields
     }
   }
