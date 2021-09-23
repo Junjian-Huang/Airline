@@ -29,7 +29,7 @@ export const AddAirlineForm: React.FC<SubmitFormProps> = () => {
     const [departure, setDeparture] = useState<string>("");
     const [destination, setDdestination] = useState<string>("");
 
-    const [aircraftId,setAircraftId] = useState<string>(""); //................
+    //const [aircraftId,setAircraftId] = useState<string>(""); //after login aircraftId is from local storage
 
     const [submit, setSubmit] = useState(false);
 
@@ -40,7 +40,7 @@ export const AddAirlineForm: React.FC<SubmitFormProps> = () => {
 
     const handleSubmit = async() => {
         if (destination !== "" && departure !== "" && airlineName !== "") {
-            console.log({"departure": departure, "destination": destination, "airlineName": airlineName, "country": country,"id": aircraftId});
+            console.log({"departure": departure, "destination": destination, "airlineName": airlineName, "country": country});
             
             try {
                     await addAirline({variables: {
@@ -48,11 +48,11 @@ export const AddAirlineForm: React.FC<SubmitFormProps> = () => {
                         destination: destination,
                         name: airlineName,
                         country: country,
-                        id: aircraftId,
                     }})
                 setSubmit(true);
             } catch(e) {
                 console.log(e)
+                alert("Please login to add Airline");
             }
         }else{
             setHasFocus(true);
@@ -67,7 +67,7 @@ export const AddAirlineForm: React.FC<SubmitFormProps> = () => {
             {
                 submit ?
                     <Grid>
-                        <Typography variant="subtitle1" component="div">
+                        <Typography variant="h4" component="div" className="submitedText">
                             Congratulations! Airline has been submitted successfully.
                         </Typography>
                     </Grid> : null
@@ -97,16 +97,7 @@ export const AddAirlineForm: React.FC<SubmitFormProps> = () => {
                         className={hasFocus && airlineName === ""?"":classes.root}
                         helperText="Fill Airline name please."
                         onChange={e => setAirlineName(e.target.value)} />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextField id="standard-basic" label="AircraftId" fullWidth
-                        error={hasFocus && aircraftId === ""}
-                        value={aircraftId}
-                        className={hasFocus && aircraftId === ""?"":classes.root}
-                        helperText="Assign Aircraft ID."
-                        onChange={e => setAircraftId(e.target.value)} />
                 </Grid>               
-                
             </Grid>
             <Button className="form_button" backgroundColor="limegreen" label="Submit" onClick={handleSubmit} primary size="medium" />
         </Container>

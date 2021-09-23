@@ -32,7 +32,7 @@ function App() {
                 <Route path="/searchPage">
                   <SearchPage />
                 </Route>
-                <Route path="/submit">
+                <Route path="/addDescription">
                   <SubmitForm />
                 </Route>
                 <Route path="/aircraftPage">
